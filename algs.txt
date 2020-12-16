@@ -1,0 +1,12 @@
+for(i.value = 0; i.value < 4; i.value++){
+    for(j.value = i.value; j.value < 4; j.value++){
+        swap(i.value,j.value);
+    }
+}
+
+for(i = 0; i < 4; i++){
+    for(j = i; j < 4; j++){
+        swap(i,j);
+    }
+}
+

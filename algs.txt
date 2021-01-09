@@ -4,9 +4,19 @@ for(i.value = 0; i.value < 4; i.value++){
     }
 }
 
-for(i = 0; i < 4; i++){
-    for(j = i; j < 4; j++){
+for(i = 0; i < a.length; i++){
+    for(j = i; j < a.length; j++){
         swap(i,j);
     }
+}
+
+for(i = 0; i < a.length; i++){
+    minI = i;
+    for(j = i + 1; j < a.length; j++){
+        if(a[j] < a[minI]){
+            minI = j;
+        }
+    }
+    swap(i,minI);
 }
 

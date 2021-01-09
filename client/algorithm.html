@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/selectionbox.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="lib/codemirror.css" />
+    <script src="lib/codemirror.js"></script>
+    <script src="mode/javascript/javascript.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="panel-container">
+      <div class="alg-overview">
+        <div id="alg-desc">
+          <h1>Quick sort</h1>
+          <img src="images/quick_sort.png" alt="quickSort image" srcset="" />
+          <h2>Description</h2>
+          <span
+            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+            hendrerit est risus, ut tincidunt ante egestas ac. Suspendisse
+            potenti. In vehicula in augue et faucibus. Fusce gravida leo vel
+            auctor semper. Vestibulum nec justo quis dolor laoreet volutpat. In
+            quis posuere velit, sit amet viverra augue. Fusce consectetur lorem
+            ut porta aliquet. Donec ante est, feugiat in fermentum et, hendrerit
+            a leo. Sed semper vulputate nisi et semper. Praesent suscipit, enim
+            sit amet posuere congue, quam libero aliquam nisl, non tempus enim
+            neque sed sem. Maecenas quis urna ex. Phasellus dapibus eget tortor
+            pretium porttitor. Ut metus leo, bibendum eget lorem at, suscipit
+            viverra tellu</span
+          >
+          <h3>Input and output format</h3>
+          <p><strong>Input :</strong></p>
+          <span
+            >Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit.</span
+          >
+          <p><strong>Output :</strong></p>
+          <h2 style="margin-bottom: 0.25rem;">Complexities</h2>
+          <div>
+            <p style="display: inline;">Time: <strong>O(n)</strong></p>
+            <p style="float: right; display: inline;">
+              Space: <strong>O(n)</strong>
+            </p>
+          </div>
+        </div>
+        <div id="anim"></div>
+      </div>
+      <div class="alg-container">
+        <div class="algHeader">Code you's solution here</div>
+        <div id="alg"></div>
+
+        <div style="display: flex; align-items: center;">
+          <button
+            id="run"
+            class="button buttonGreen"
+            style="margin-right: 1rem;"
+          >
+            Run selected test
+          </button>
+          <button class="button buttonGreen" style="margin-right: 8rem;">
+            Validate
+          </button>
+
+          <span
+            style="
+              font-size: 24px;
+              color: green;
+              margin-left: auto;
+              margin-right: 0.5rem;
+            "
+            >Animation panel</span
+          >
+          <label class="switch" style="margin-right: 0.5rem;">
+            <input id="switch" type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="test-container">
+        <div>
+          <label for="multi-select">Select the test you want to run</label>
+          <div class="select select--multiple">
+            <select id="multi-select" multiple>
+              <option value="[]" selected>Empty set</option>
+            </select>
+            <span class="focus"></span>
+          </div>
+        </div>
+      </div>
+      <div class="implementations-container" style="padding: 1rem;">
+        <div class="control_buttons">
+          <button>Previous</button>
+          <button id="next">Next</button>
+        </div>
+        <div
+          id="imp-cont"
+          style="overflow: auto; height: 4.5em; font-size: 1.5em;"
+        ></div>
+        <!--
+        <button id="run">Run</button>
+        <div style="display: flex;">
+          <div id="i0" class="cell">0</div>
+          <div id="i1" class="cell">1</div>
+          <div id="i2" class="cell">2</div>
+          <div id="i3" class="cell">3</div>
+          <div id="i4" class="cell">4</div>
+        </div>
+        <div style="display: flex;">
+          <div id="j0" class="cell">0</div>
+          <div id="j1" class="cell">1</div>
+          <div id="j2" class="cell">2</div>
+          <div id="j3" class="cell">3</div>
+          <div id="j4" class="cell">4</div>
+        </div>
+
+        <button id="next">Next</button>
+        -->
+      </div>
+    </div>
+  </body>
+  <script src="compiler.js"></script>
+  <script src="controlls.js"></script>
+  <script src="fetcher.js"></script>
+</html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/animation.css" />
     <link rel="stylesheet" href="styles/selectionbox.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -21,45 +22,49 @@
     <link rel="stylesheet" href="lib/codemirror.css" />
     <script src="lib/codemirror.js"></script>
     <script src="mode/javascript/javascript.js"></script>
+    <script async defer src="js/compiler.js"></script>
+    <script async defer src="js/fetcher.js"></script>
+    <script async defer src="js/animation.js"></script>
+    <script async defer src="js/controlls.js"></script>
     <title>Document</title>
   </head>
   <body>
     <div class="panel-container">
       <div class="alg-overview">
         <div id="alg-desc">
-          <h1>Quick sort</h1>
-          <img src="images/quick_sort.png" alt="quickSort image" srcset="" />
+          <h1 id="alg_name"></h1>
+          <img
+            id="alg_img"
+            style="width: 18rem;"
+            alt="algorithm image"
+            srcset=""
+          />
           <h2>Description</h2>
-          <span
-            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-            hendrerit est risus, ut tincidunt ante egestas ac. Suspendisse
-            potenti. In vehicula in augue et faucibus. Fusce gravida leo vel
-            auctor semper. Vestibulum nec justo quis dolor laoreet volutpat. In
-            quis posuere velit, sit amet viverra augue. Fusce consectetur lorem
-            ut porta aliquet. Donec ante est, feugiat in fermentum et, hendrerit
-            a leo. Sed semper vulputate nisi et semper. Praesent suscipit, enim
-            sit amet posuere congue, quam libero aliquam nisl, non tempus enim
-            neque sed sem. Maecenas quis urna ex. Phasellus dapibus eget tortor
-            pretium porttitor. Ut metus leo, bibendum eget lorem at, suscipit
-            viverra tellu</span
-          >
+          <span id="alg_text"> </span>
           <h3>Input and output format</h3>
           <p><strong>Input :</strong></p>
-          <span
-            >Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit.</span
-          >
+          <span id="alg_input"> </span>
           <p><strong>Output :</strong></p>
+          <span id="alg_output"> </span>
           <h2 style="margin-bottom: 0.25rem;">Complexities</h2>
           <div>
-            <p style="display: inline;">Time: <strong>O(n)</strong></p>
+            <p style="display: inline;">Time: <strong id="alg_T"></strong></p>
             <p style="float: right; display: inline;">
-              Space: <strong>O(n)</strong>
+              Space: <strong id="alg_M"></strong>
             </p>
           </div>
         </div>
-        <div id="anim"></div>
+        <div
+          id="anim"
+          style="display: none; padding-top: 100px; padding-left: 40px;"
+        >
+          <div>
+            <div id="array-box" style="display: flex;"></div>
+          </div>
+          <div style="margin-top: 100px;">
+            <div id="variable-box"></div>
+          </div>
+        </div>
       </div>
       <div class="alg-container">
         <div class="algHeader">Code you's solution here</div>
@@ -134,7 +139,4 @@
       </div>
     </div>
   </body>
-  <script src="compiler.js"></script>
-  <script src="controlls.js"></script>
-  <script src="fetcher.js"></script>
 </html>

@@ -4,9 +4,12 @@ for(i.value = 0; i.value < 4; i.value++){
     }
 }
 
+//note the space between j and j+1
+
 for(i = 0; i < a.length; i++){
-    for(j = i; j < a.length; j++){
-        swap(i,j);
+    for(j = 0; j < a.length; j++){
+        if(a[j] > a[j+1])
+            swap(j,j+1);
     }
 }
 
@@ -20,3 +23,9 @@ for(i = 0; i < a.length; i++){
     swap(i,minI);
 }
 
+//insertion sort
+for(i = 0; i < a.length - 1; i++){
+    for(j = i + 1;j > 0 && a[j-1]>a[j]; j--){
+        swap(j,j-1);
+    }
+}

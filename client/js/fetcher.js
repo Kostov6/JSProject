@@ -1,4 +1,4 @@
-fetch("http://localhost:3000/bubble/tests")
+fetch("http://localhost:3000/rest/tests/sorting")
     .then(response => response.json())
     .then(data => {
         tests = document.getElementById("multi-select");
@@ -11,7 +11,7 @@ fetch("http://localhost:3000/bubble/tests")
 
     })
 
-fetch("http://localhost:3000/bubble/description")
+fetch("http://localhost:3000/rest/algorithms/60081c59080d5416ec3ee565")
     .then(response => response.json())
     .then(data => {
         document.getElementById("alg_name").innerHTML = data.alg_name;

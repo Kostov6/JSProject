@@ -11,7 +11,11 @@ fetch("http://localhost:3000/rest/tests/sorting")
 
     })
 
-fetch("http://localhost:3000/rest/algorithms/60081c59080d5416ec3ee565")
+
+
+const algId = getParameterByName("algId");
+
+fetch("http://localhost:3000/rest/algorithms/" + algId)
     .then(response => response.json())
     .then(data => {
         document.getElementById("alg_name").innerHTML = data.alg_name;
@@ -22,3 +26,12 @@ fetch("http://localhost:3000/rest/algorithms/60081c59080d5416ec3ee565")
         document.getElementById("alg_M").innerHTML = data.alg_M;
         document.getElementById("alg_img").setAttribute("src", data.alg_img)
     })
+
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}

@@ -2,12 +2,22 @@ const template = document.createElement("template");
 template.innerHTML = `
     <style>
         .card{
-            background-color:lightblue;
-            height:12rem;
+            background-color: #d7ff96;
+            height:16rem;
+            display:flex;
+            justify-content: center;
+            margin-bottom:1rem;
+        }
+
+        img{
+            height:10rem;
         }
     </style>
     <div class='card'>
-        <h1></h1>
+        <div>
+            <h1></h1>
+            <img></img>
+        </div>
     </div>
 
 `;
@@ -27,6 +37,7 @@ class AlgorithmCard extends HTMLElement {
 
         this.shadowRoot.querySelector('h1').innerText =
             this.getAttribute("algorithm");
+        this.shadowRoot.querySelector("img").setAttribute("src", "images/" + this.getAttribute("img"));
 
     }
 

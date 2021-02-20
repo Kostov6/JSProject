@@ -26,11 +26,14 @@ document.getElementById("next").addEventListener("click", function () {
                 else
                     tabbedMessage += "&nbsp;&nbsp;&nbsp;&nbsp;";
             }
+            tabbedMessage = "";
+
             content.innerHTML = tabbedMessage + actions[index].message
 
             const containerChildrem = document.getElementById(variable).children;
             if (oldValue <= a.length + 1)
-                containerChildrem.item(oldValue).style.border = "1px solid black";
+                if (containerChildrem.item(oldValue) != null)
+                    containerChildrem.item(oldValue).style.border = "1px solid black";
             if (newValue <= a.length + 1)
                 containerChildrem.item(newValue).style.border = "2px solid greenyellow";
         } else {
@@ -44,17 +47,24 @@ document.getElementById("next").addEventListener("click", function () {
 });
 
 document.getElementById("run").addEventListener("click", () => {
+    a = JSON.parse(domTests.value);
     variableUsed = [];
-
+    actions = [];
+    index = 0;
 
     let str = editor.getValue();
 
     str = str.replaceAll(replaceBugfix, "$1 $2 $3");
     console.log(str);
+    for (let regex of indexRegexes) {
+        str = str.replaceAll(regex, "$1$2.v$3");
+        console.log(str);
+    }
+    /*
     str = str.replaceAll(iRegex, "$1$2.v$3");
     console.log(str);
     str = str.replaceAll(jRegex, "$1$2.v$3");
-    console.log(str);
+    console.log(str);*/
     str = str.replaceAll(minIRegex, "$1$2.v$3");
     console.log(str);
 
@@ -85,3 +95,50 @@ document.getElementById("switch").addEventListener("click", () => {
         document.getElementById("alg-desc").style.display = "none";
     }
 });
+
+document.getElementById("validate").addEventListener("click", () => {
+    let failedTests = [];
+    let testIndex = 1;
+    for (let testArray of allTestArrays) {
+        a = testArray;
+        let str = editor.getValue();
+
+        str = str.replaceAll(replaceBugfix, "$1 $2 $3");
+        console.log(str);
+        for (let regex of indexRegexes) {
+            str = str.replaceAll(regex, "$1$2.v$3");
+            console.log(str);
+        }
+        str = str.replaceAll(minIRegex, "$1$2.v$3");
+        console.log(str);
+
+        eval(str);
+        testArray.sort(function (a, b) {
+            return a - b;
+        });
+
+        if (a.length != testArray.length)
+            failedTests.push(testIndex);
+        else {
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] != testArray[i]) {
+                    failedTests.push(testIndex);
+                    break;
+                }
+            }
+        }
+        console.log(a);
+
+        testIndex++;
+    }
+    if (failedTests.length == 0) {
+        alert("All tests ran successfull!")
+    } else {
+        let failMsg = "Tests with indexes "
+        for (let i = 0; i < failedTests.length - 1; i++) {
+            failMsg += failedTests[i] + ","
+        }
+        failMsg += failedTests[failedTests.length - 1] + " have failed!";
+        alert(failMsg);
+    }
+})

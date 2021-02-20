@@ -1,13 +1,24 @@
-const indexers = ["i", "j"];
+const indexers = ["i", "j", "k", "s", "t", "q"];
 
-const iRegex = /(\W)(i)(\W)/g;
+const indexRegexes = [/(\W)(i)(\W)/g, /(\W)(j)(\W)/g, /(\W)(k)(\W)/g, /(\W)(s)(\W)/g, /(\W)(t)(\W)/g, /(\W)(q)(\W)/g]
+/*const iRegex = /(\W)(i)(\W)/g;
 const jRegex = /(\W)(j)(\W)/g;
+const kRegex = /(\W)(k)(\W)/g;
+const sRegex = /(\W)(s)(\W)/g;
+const tRegex = /(\W)(t)(\W)/g;
+const qRegex = /(\W)(q)(\W)/g;
+*/
 const minIRegex = /(\W)(minI)(\W)/g;
 
 const replaceBugfix = /(.*)(,)(.*)/g
 
 const i = simpleProxy("i");
 const j = simpleProxy("j")
+const k = simpleProxy("k");
+const s = simpleProxy("s")
+const t = simpleProxy("t");
+const q = simpleProxy("q")
+
 const minI = simpleProxy("minI")
 
 function swap(i, j) {
@@ -34,16 +45,9 @@ function swap(i, j) {
 let originalArray = [];
 
 //const steps = [];
-const actions = [];
-
-let variableUsed = [];
-
+let actions = [];
 let index = 0;
-
-function sleep(sleepDuration) {
-    const now = new Date().getTime();
-    while (new Date().getTime() < now + sleepDuration) {}
-}
+let variableUsed = [];
 
 function simpleProxy(proxyName) {
     return new Proxy({
@@ -70,7 +74,7 @@ function simpleProxy(proxyName) {
 }
 
 const editor = CodeMirror(document.getElementById("alg"), {
-    value: "//use variables i,j,minI,minJ if you want variable tracking",
+    value: "//use variables i, j, k, s, t, q, minI if you want variable tracking",
     lineNumbers: true,
     tabSize: 2,
 });

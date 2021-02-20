@@ -4,7 +4,6 @@ for(i.value = 0; i.value < 4; i.value++){
     }
 }
 
-//note the space between j and j+1
 
 for(i = 0; i < a.length; i++){
     for(j = 0; j < a.length-i; j++){
@@ -29,3 +28,25 @@ for(i = 0; i < a.length - 1; i++){
         swap(j,j-1);
     }
 }
+
+
+//fail example
+if(a.length==0 || a.length == 3){
+  a=[767667];
+}
+else{
+  for(i = 0; i < a.length; i++){
+      for(j = 0; j < a.length-i; j++){
+          if(a[j] > a[j+1])
+              swap(j,j+1);
+      }
+  }
+}
+
+for(i = 0; i < a.length; i++){
+    for(j = 0; j < a.length-i; j++){
+        if(a[j] > a[j+1])
+            swap(j,j+1);
+    }
+}
+a=[];

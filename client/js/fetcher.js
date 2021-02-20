@@ -1,8 +1,14 @@
+const allTestArrays = [
+    []
+];
+
 fetch("http://localhost:3000/rest/tests/sorting")
     .then(response => response.json())
     .then(data => {
         tests = document.getElementById("multi-select");
+        console.log(data);
         for (test of data) {
+            allTestArrays.push(JSON.parse(test.value));
             let domTest = document.createElement("option");
             domTest.setAttribute("value", test.value);
             domTest.innerText = test.text;

@@ -10,4 +10,5 @@ Functionalities:
 
 Technologies:
 * Express
-* XAMPP SQL
+* Web components
+* Mongo DB

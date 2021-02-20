@@ -1,0 +1,30 @@
+//bubble sort
+for(i = 0; i < a.length; i++){
+    for(j = 0; j < a.length-i; j++){
+        if(a[j] > a[j+1])
+            swap(j,j+1);
+    }
+}
+
+//selection sort
+for(k = 0; k < a.length; k++){
+    minI = k;
+    for(s = k + 1; s < a.length; s++){
+        if(a[s] < a[minI]){
+            minI = s;
+        }
+    }
+    swap(k,minI);
+}
+
+//insertion sort
+for(t = 0; t < a.length - 1; t++){
+    for(q = t + 1;q > 0 && a[q-1]>a[q]; q--){
+        swap(q,q-1);
+    }
+}
+
+
+a=[];
+a=[8];
+a=[9];

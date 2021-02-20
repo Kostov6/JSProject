@@ -10,6 +10,18 @@
     padding-bottom: 15px;
 }
 
+.cube2 {
+    margin-right: 40px;
+    width: 60px;
+    height: 60px;
+    background: orange;
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 .indexer {
     margin-right: 40px;
     width: 60px;

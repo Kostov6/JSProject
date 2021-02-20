@@ -1,14 +1,28 @@
 function setupAnimationBoard() {
     const arrayBox = document.getElementById("array-box");
+    //clear old array
     while (arrayBox.firstChild) {
         arrayBox.removeChild(arrayBox.lastChild);
     }
     const arraySize = a.length;
+    //add numbers from originalArray
     for (element of originalArray) {
         const newEl = document.createElement("div");
         newEl.innerHTML = element;
         newEl.setAttribute("class", "cube");
         arrayBox.appendChild(newEl);
+    }
+    //clear old arrayBox2
+    const arrayBox2 = document.getElementById("array-box2");
+    while (arrayBox2.firstChild) {
+        arrayBox2.removeChild(arrayBox2.lastChild);
+    }
+    //add elements from b
+    for (element of originalArrayB) {
+        const newEl = document.createElement("div");
+        newEl.innerHTML = element;
+        newEl.setAttribute("class", "cube2");
+        arrayBox2.appendChild(newEl);
     }
 
     const variablesContainer = document.getElementById("variable-box");
@@ -89,5 +103,26 @@ function animateSwap(i, j) {
 
         blocks[i].setAttribute("class", "cube");
         blocks[j].setAttribute("class", "cube")
+    }, 5000);
+}
+
+function animateSwap2(i, j) {
+    console.log(i, j)
+    const blocks = document.getElementsByClassName("cube2");
+    if (i < j) {
+        blocks[i].setAttribute("class", "cube2 swapAnimationUp" + (j - i));
+        blocks[j].setAttribute("class", "cube2 swapAnimationDown" + (j - i))
+    } else {
+        blocks[i].setAttribute("class", "cube2 swapAnimationInplace");
+    }
+    setTimeout(() => {
+        const iVal = blocks[i].innerHTML;
+        const jVal = blocks[j].innerHTML;
+
+        blocks[i].innerHTML = jVal;
+        blocks[j].innerHTML = iVal;
+
+        blocks[i].setAttribute("class", "cube2");
+        blocks[j].setAttribute("class", "cube2")
     }, 5000);
 }

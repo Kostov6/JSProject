@@ -41,7 +41,9 @@ document.getElementById("next").addEventListener("click", function () {
             variableBox.innerText = newValue;
         }
     } else if (actions[index].function === "swap") {
-        animateSwap(actions[index].minIndex, actions[index].maxIndex)
+        animateSwap(actions[index].minIndex, actions[index].maxIndex);
+    } else if (actions[index].function == "swap2") {
+        animateSwap2(actions[index].minIndex, actions[index].maxIndex);
     }
     index++;
 });
@@ -53,6 +55,13 @@ document.getElementById("run").addEventListener("click", () => {
     index = 0;
 
     let str = editor.getValue();
+    let splitted = str.split(';');
+    str = splitted[0] + ";originalArrayB=[...b];"
+    for (let counter = 1; counter < splitted.length; counter++) {
+        str += splitted[counter] + ";";
+    }
+
+    console.log(str)
 
     str = str.replaceAll(replaceBugfix, "$1 $2 $3");
     console.log(str);
@@ -67,6 +76,7 @@ document.getElementById("run").addEventListener("click", () => {
     console.log(str);*/
     str = str.replaceAll(minIRegex, "$1$2.v$3");
     console.log(str);
+
 
     eval(str);
 

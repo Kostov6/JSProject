@@ -21,12 +21,11 @@ const q = simpleProxy("q")
 
 const minI = simpleProxy("minI")
 
-function swap(i, j) {
+function swapA(i, j) {
     tmp = a[i];
     a[i] = a[j];
     a[j] = tmp;
 
-    console.log(`   swapping element[${i}] with element[${j}]`);
     /*
     let cont = document.getElementById("imp-cont");
     let content = document.createElement("div");
@@ -38,9 +37,25 @@ function swap(i, j) {
         function: "swap",
         minIndex: i < j ? i : j,
         maxIndex: i > j ? i : j,
-        message: `swapping element[${i}] with element[${j}]`
+        message: `swapping element[${i}] with element[${j}] on array a`
     })
 }
+
+function swapB(i, j) {
+    tmp = b[i];
+    b[i] = b[j];
+    b[j] = tmp;
+
+    console.log(`   swapping element[${i}] with element[${j}] on array b`);
+
+    actions.push({
+        function: "swap2",
+        minIndex: i < j ? i : j,
+        maxIndex: i > j ? i : j,
+        message: `swapping element[${i}] with element[${j}] on array b`
+    })
+}
+
 
 let originalArray = [];
 

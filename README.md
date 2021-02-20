@@ -10,5 +10,6 @@ Functionalities:
 
 Technologies:
 * Express
+* Proxies
 * Web components
 * Mongo DB
